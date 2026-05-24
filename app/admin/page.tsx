@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 
 const EMPTY = {
   title: "", slug: "", department: "", category: "SSC",
@@ -74,7 +75,13 @@ export default function AdminPage() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold text-gray-800 mb-6">📋 New Job Post</h1>
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-2xl font-bold text-gray-800">📋 Admin Panel</h1>
+        <Link href="/admin/draft"
+          className="bg-blue-600 text-white px-5 py-2 rounded-xl font-semibold hover:bg-blue-700 transition text-sm">
+          🤖 AI se Draft Banao
+        </Link>
+      </div>
       {msg && (
         <div className={`mb-5 p-4 rounded-xl font-medium ${msg.includes("✅") ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}`}>
           {msg}
